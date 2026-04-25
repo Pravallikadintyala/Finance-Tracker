@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #f4fdf8;
+  --color-primary-100: #e0faea;
+  --color-primary-500: #10b981;
+  --color-primary-600: #059669;
+  --color-primary-700: #047857;
+
+  --color-dark: #0f172a;
+  --color-darker: #020617;
+  
+  --color-surface: #ffffff;
+  --color-background: #f8fafc;
+
+  --font-sans: 'Outfit', sans-serif;
+
+  --animate-fade-in: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --animate-slide-up: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --animate-slide-right: slideRight 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --animate-blob: blob 7s infinite;
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes slideRight {
+    0% { transform: translateX(-20px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.05); }
+    66% { transform: translate(-20px, 20px) scale(0.95); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-slate-800);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Premium utility classes for generic elements */
+@layer components {
+  .btn-primary {
+    @apply flex items-center justify-center gap-2 w-full py-3 px-5 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-xl transition-all duration-300 focus:ring-4 focus:ring-primary-500/20 disabled:opacity-70 disabled:cursor-not-allowed shadow-[0_4px_14px_0_rgba(5,150,105,0.25)] hover:shadow-[0_6px_20px_rgba(5,150,105,0.3)];
+  }
+  
+  .btn-danger {
+    @apply flex items-center justify-center gap-2 w-full py-3 px-5 bg-rose-500 hover:bg-rose-600 text-white font-medium rounded-xl transition-all duration-300 focus:ring-4 focus:ring-rose-500/20 disabled:opacity-70 disabled:cursor-not-allowed shadow-[0_4px_14px_0_rgba(244,63,94,0.25)] hover:shadow-[0_6px_20px_rgba(244,63,94,0.3)];
+  }
+  
+  .btn-secondary {
+    @apply flex items-center justify-center gap-2 w-full py-3 px-5 bg-white hover:bg-slate-50 text-slate-700 font-medium rounded-xl border border-slate-200 transition-all duration-300 focus:ring-4 focus:ring-slate-500/10 disabled:opacity-70 disabled:cursor-not-allowed shadow-sm hover:shadow-md;
+  }
+
+  .form-input {
+    @apply w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 transition-all duration-300 outline-none bg-slate-50/50 hover:bg-white focus:bg-white text-slate-800 shadow-sm;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-slate-600 mb-2;
+  }
+
+  .card {
+    @apply bg-surface rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-8 transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)];
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-colors focus:ring-4 focus:ring-primary-500/20 disabled:opacity-70 disabled:cursor-not-allowed shadow-sm hover:shadow;
+  }
+  
+  .btn-danger {
+    @apply flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors focus:ring-4 focus:ring-red-500/20 disabled:opacity-70 disabled:cursor-not-allowed shadow-sm hover:shadow;
+  }
+  
+  .btn-secondary {
+    @apply flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-white hover:bg-slate-50 text-slate-700 font-medium rounded-lg border border-slate-200 transition-colors focus:ring-4 focus:ring-slate-500/10 disabled:opacity-70 disabled:cursor-not-allowed shadow-sm hover:shadow;
+  }
+
+  .form-input {
+    @apply w-full px-4 py-2.5 rounded-lg border border-slate-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all outline-none bg-white text-slate-800 shadow-sm;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-slate-700 mb-1.5;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl border border-slate-100 shadow-sm p-6 hover:shadow-md transition-shadow duration-300;
+  }
+}
