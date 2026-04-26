@@ -27,6 +27,7 @@ const History = () => {
   };
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchHistory();
   }, []);
 
@@ -37,7 +38,7 @@ const History = () => {
         await api.delete(`/expenses/${id}`);
         toast.success('Transaction deleted');
         fetchHistory(); // Refresh data
-      } catch (error) {
+      } catch {
         toast.error('Failed to delete transaction');
       } finally {
         setDeletingId(null);

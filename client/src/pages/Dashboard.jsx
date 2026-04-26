@@ -3,7 +3,7 @@ import api from '../api/axios';
 import { toast } from 'react-hot-toast';
 import { ArrowDownRight, Wallet, Plus, PieChart as PieChartIcon, TrendingUp } from 'lucide-react';
 import { useCurrency } from '../context/CurrencyContext';
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts';
 
 const COLORS = ['#10b981', '#3b82f6', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899', '#06b6d4', '#14b8a6'];
 
@@ -40,6 +40,7 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchData();
   }, []);
 
